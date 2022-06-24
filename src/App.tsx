@@ -1,17 +1,16 @@
-import { gql, useQuery } from '@apollo/client';
-import Header from './components/Header';
-import Lesson from './components/Lesson';
-import Video from './components/Video';
-import Sidebar from './components/Sidebar';
-import Event from './pages/Event';
-
-interface Lesson {
-  id: string;
-  title: string;
-}
+import { ApolloProvider } from '@apollo/client';
+import { Router } from './Router';
+import { client } from './lib/apollo';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-  return <Event />;
+  return (
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </ApolloProvider>
+  );
 }
 
 export default App;
